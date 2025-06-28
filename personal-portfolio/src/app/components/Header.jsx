@@ -6,21 +6,11 @@ import Button from './Button'
 const Header = () => {
   const titles = ["Computer Science Student", "Software Developer", "Researcher"];
 
-  const onResumeClick = () => {
-    // Open resume in new tab
-    window.open('https://drive.google.com/file/d/1wb5CGK2xlKyJco1oNshLHaeqppv-39sB/view?usp=sharing', '_blank');
-  };
-
-  const onContactClick = () => {
-    // Scroll to contact section
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-white">
       <div className="flex items-center gap-48">
-        <div>
-          <Image  
+        <div className="hidden md:flex">
+          <Image 
             src="/headshot.jpg" 
             alt="Caleb Hu headshot" 
             width={400} 
@@ -40,7 +30,8 @@ const Header = () => {
               bgColor="bg-teal-900" 
               hoverBgColor="hover:bg-teal-700"
               hoverTextColor="hover:text-gray-100"
-              onClick={onResumeClick}
+              href="https://drive.google.com/file/d/1wb5CGK2xlKyJco1oNshLHaeqppv-39sB/view?usp=sharing"
+              isExternal={true}
             >
               Resume/CV
             </Button>
@@ -53,7 +44,7 @@ const Header = () => {
               borderColor="border-teal-900"
               hoverBgColor="hover:bg-teal-700"
               hoverTextColor="hover:text-gray-100"
-              onClick={onContactClick}
+              href="#contact"
             >
               Contact Me
             </Button>
