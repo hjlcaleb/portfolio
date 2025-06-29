@@ -122,7 +122,7 @@ const Projects = () => {
     return (
         <section id="projects" className="min-h-screen flex justify-center transition-smooth bg-gray-50">
             <div className="container mx-auto px-4">
-                <h1 className="text-6xl md:text-8xl font-bold mb-12 text-center text-teal-900 mt-20">Projects</h1>
+                <h1 className="text-6xl md:text-8xl font-bold mb-12 text-center text-teal-900 mt-40">Projects</h1>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     {projects.map((proj, index) => (
                         <ProjectBlock key={index} {...proj} />
