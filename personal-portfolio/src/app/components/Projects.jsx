@@ -69,6 +69,18 @@ const ProjectBlock = ({ title, imagePreview, description, skills, githubLink, li
 const Projects = () => {
     const projects = [
         {
+            title: "Space Invaders",
+            imagePreview: "/space-invaders-demo.png",
+            description: "Desktop rendition of 1970s Space Invaders-style video game.",
+            skills: [
+                { name: "Java", category: "language" },
+                { name: "Java Swing", category: "framework" },
+                
+            ],
+            githubLink: "https://github.com/hjlcaleb/space-invaders",
+            liveLink: "https://nickblendz.com"
+        },
+        {
             title: "Yoka Tea Website",
             imagePreview: "/yoka-tea-demo.png",
             description: "Full-stack website for a local boba tea shop in Seattle, WA.",
@@ -92,30 +104,11 @@ const Projects = () => {
                 { name: "Next.js", category: "framework" },
                 { name: "Tailwind CSS", category: "tool" },
                 { name: "EmailJS", category: "tool" },
-                { name: "Docker", category: "tool" },
-                { name: "Google Analytics", category: "tool" },
                 { name: "Amazon Web Services (AWS) RDS", category: "cloud" },
                 { name: "Amazon Web Services (AWS) S3", category: "cloud" }
                 
             ],
             githubLink: "https://github.com/hjlcaleb/nick-blendz",
-            liveLink: "https://nickblendz.com"
-        }, 
-        {
-            title: "Space Invaders",
-            imagePreview: "/space-invaders-demo.png",
-            description: "Full 1970s Space Invaders-style game.",
-            skills: [
-                { name: "Java", category: "language" },
-                { name: "SQL", category: "language" },
-                { name: "Java Swing", category: "framework" },
-                { name: "Spring Boot", category: "framework" },
-                { name: "React.js", category: "framework" },
-                { name: "Docker", category: "tool" },
-                { name: "Amazon Web Services (AWS) RDS", category: "cloud" }
-                
-            ],
-            githubLink: "https://github.com/hjlcaleb/space-invaders",
             liveLink: "https://nickblendz.com"
         }
     ]
