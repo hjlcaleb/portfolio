@@ -62,7 +62,7 @@ const About = () => {
     return (
         <section id="about" className="min-h-screen py-20 bg-gray-50">
             <div className="container mx-auto px-4">
-                <h1 className="text-6xl md:text-8xl font-bold mb-12 text-center text-teal-900">About Me</h1>
+                <h1 className="text-6xl md:text-8xl font-bold mb-12 text-center text-teal-900 mt-20">About Me</h1>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto px-8">
                     {/* Photo and Description Side by Side */}
