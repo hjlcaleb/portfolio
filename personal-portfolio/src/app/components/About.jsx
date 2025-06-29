@@ -68,7 +68,7 @@ const About = () => {
                     {/* Photo and Description Side by Side */}
                     <div className="flex justify-start">
                         <Image 
-                            src="/me.jpg"
+                            src="/me.png"
                             alt="Caleb Hu"
                             width={500}
                             height={500}
