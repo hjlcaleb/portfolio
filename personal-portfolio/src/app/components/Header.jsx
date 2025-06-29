@@ -49,6 +49,22 @@ const Header = () => {
               Contact Me
             </Button>
           </div>
+          <div className="items-center grid grid-cols-3 gap-2 mt-10">
+            <a className="flex flex-col items-center" href="https://www.github.com/hjlcaleb" target="_blank" rel="noopener noreferrer">
+                              <Image src="/github.png" alt="github" width={50} height={50} />
+                              <h3 className="text-2xl font-black mt-2">Github</h3>
+            </a>
+            <a className="flex flex-col items-center" href="mailto:chu552@cs.washington.edu" target="_blank" rel="noopener noreferrer">
+              <Image src="/mail.svg" alt="mail" width={50} height={50} className="rounded-full bg-teal-900 border-teal-900 shadow-lg" />
+              <h3 className="text-2xl font-black mt-2">Email</h3>
+            </a>
+
+            <a className="flex flex-col items-center" href="https://www.linkedin.com/in/calebhu" target="_blank" rel="noopener noreferrer">
+              <Image src="/linkedin.png" alt="linkedin" width={50} height={50} className="rounded-full border-2 bg-teal-900 border-teal-900 shadow-lg" />
+              <h3 className="text-2xl font-black mt-2">LinkedIn</h3>
+            </a>
+          </div>
+          
           
         </div>
       </div>

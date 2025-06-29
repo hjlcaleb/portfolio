@@ -64,7 +64,7 @@ const Experience = () => {
     return (
         <section id="experience" className="min-h-screen py-20 bg-gray-50">
             <div className="container mx-auto px-4">
-                <h1 className="text-6xl md:text-8xl font-bold mb-12 text-center text-teal-900">Experience</h1>
+                <h1 className="text-6xl md:text-8xl font-bold mb-12 text-center text-teal-900 mt-20">Experience</h1>
                 <div className="flex flex-col items-center">
                     {experiences.map((exp, index) => (
                         <ExperienceBlock key={index} {...exp} />
