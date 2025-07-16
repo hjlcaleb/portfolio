@@ -52,6 +52,7 @@ const ProjectBlock = ({ title, imagePreview, description, skills, githubLink, li
                             skill.category === 'language' ? 'bg-blue-100 text-blue-800' :
                             skill.category === 'framework' ? 'bg-green-100 text-green-800' :
                             skill.category === 'tool' ? 'bg-purple-100 text-purple-800' :
+                            skill.category === 'library' ? 'bg-yellow-100 text-yellow-800':
                             skill.category === 'cloud' ? 'bg-orange-100 text-orange-800' :
                             'bg-gray-100 text-gray-800'
                         }`}
@@ -78,7 +79,7 @@ const Projects = () => {
                 
             ],
             githubLink: "https://github.com/hjlcaleb/space-invaders",
-            liveLink: "https://nickblendz.com"
+            liveLink: ""
         },
         {
             title: "Yoka Tea Website",
@@ -102,14 +103,15 @@ const Projects = () => {
             skills: [
                 { name: "TypeScript", category: "language" },
                 { name: "Next.js", category: "framework" },
-                { name: "Tailwind CSS", category: "tool" },
-                { name: "EmailJS", category: "tool" },
-                { name: "Amazon Web Services (AWS) RDS", category: "cloud" },
-                { name: "Amazon Web Services (AWS) S3", category: "cloud" }
+                { name: "Tailwind CSS", category: "framework" },
+                { name: "Clerk", category: "framework"},
+                { name: "Supabase", category: "tool" },
+                { name: "DrizzleORM", category: "library"},
+                { name: "Amazon Web Services (AWS) EC2", category: "cloud" }
                 
             ],
             githubLink: "https://github.com/hjlcaleb/nick-blendz",
-            liveLink: "https://nickblendz.com"
+            liveLink: "https://nick-blendz.com"
         }
     ]
     return (

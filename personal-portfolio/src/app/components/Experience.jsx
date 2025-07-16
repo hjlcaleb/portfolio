@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Button from './Button'
 
-const ExperienceBlock = ({ title, company, date, description, skills }) => {
+const ExperienceBlock = ({ title, company, date, description, skills, icon }) => {
     return (
         <div className="bg-white p-8 rounded-lg shadow-lg mb-8 w-full max-w-4xl border-l-4 border-teal-900 hover:shadow-xl transition-shadow">
             <div className="mb-4">
@@ -13,21 +13,28 @@ const ExperienceBlock = ({ title, company, date, description, skills }) => {
                 <p className="text-.5xl text-gray-700 mt-1">{company}</p>
             </div>
             <p className="text-gray-700 mb-4">{description}</p>
-            <div className="flex flex-wrap gap-2">
-                {skills.map((skill, index) => (
-                    <span 
-                        key={index}
-                        className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            skill.category === 'language' ? 'bg-blue-100 text-blue-800' :
-                            skill.category === 'framework' ? 'bg-green-100 text-green-800' :
-                            skill.category === 'tool' ? 'bg-purple-100 text-purple-800' :
-                            skill.category === 'cloud' ? 'bg-orange-100 text-orange-800' :
-                            'bg-gray-100 text-gray-800'
-                        }`}
-                    >
-                        {skill.name}
+            <div className="flex items-center gap-2 mt-2 w-full">
+                <div className="flex flex-wrap gap-2">
+                    {skills.map((skill, index) => (
+                        <span 
+                            key={index}
+                            className={`px-3 py-1 rounded-full text-sm font-medium ${
+                                skill.category === 'language' ? 'bg-blue-100 text-blue-800' :
+                                skill.category === 'framework' ? 'bg-green-100 text-green-800' :
+                                skill.category === 'tool' ? 'bg-purple-100 text-purple-800' :
+                                skill.category === 'cloud' ? 'bg-orange-100 text-orange-800' :
+                                'bg-gray-100 text-gray-800'
+                            }`}
+                        >
+                            {skill.name}
+                        </span>
+                    ))}
+                </div>
+                {icon && (
+                    <span className="ml-auto">
+                        <Image src={icon} alt={`${company} logo`} width={48} height={48} className="rounded-lg" />
                     </span>
-                ))}
+                )}
             </div>
         </div>
     )
@@ -36,9 +43,23 @@ const ExperienceBlock = ({ title, company, date, description, skills }) => {
 const Experience = () => {
     const experiences = [
         {
+            title: "Software Engineer Intern",
+            company: "Mastertech.ai",
+            date: "July 2025 - present",
+            icon: "/companyIcons/mastertech.png",
+            description: "Developing feature to retrieve, store, and display vehicle active recall data using National Highway Traffic Safety Administration (NHTSA) API, TypeScript and DynamoDB.",
+            skills: [
+                { name: "TypeScript", category: "language" },
+                { name: "Next.js", category: "framework" },
+                { name: "Tailwind CSS", category: "framework"},
+                { name: "AWS DynamoDB", category: "cloud" },
+            ]
+        },
+        {
             title: "Research Assistant - Computer Vision, AR/VR",
             company: "Makeability Lab, Paul G. Allen School of Computer Science & Engineering",
             date: "June 2025 - present",
+            icon: "/companyIcons/makeabilitylab.png",
             description: "Building PreviewAR, an AR/VR application that renders 2D images to 3D space, allowing users to preview product images in real-time.",
             skills: [
                 { name: "C#", category: "language" },
@@ -50,6 +71,7 @@ const Experience = () => {
             title: "Research Assistant - Natural Language Processing (NLP)",
             company: "Department of Radiation Oncology, University of Washington Medical Center",
             date: "June 2024 - October 2024",
+            icon: "/companyIcons/uw-medicine.png",
             description: "Utilized Bidirectional Encoder Representations from Transformers (BERT) LLM to analyze 95,000+ National Cancer Institute (NCI) abstracts to increase categorization accuracy and detect funding trends.",
             skills: [
                 { name: "Python", category: "language" },
