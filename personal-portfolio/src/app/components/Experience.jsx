@@ -45,34 +45,33 @@ const Experience = () => {
         {
             title: "Software Engineer Intern",
             company: "Mastertech.ai",
-            date: "July 2025 - present",
-            icon: "/companyIcons/mastertech.png",
-            description: "Developing feature to retrieve, store, and display vehicle active recall data using National Highway Traffic Safety Administration (NHTSA) API, TypeScript and DynamoDB.",
+            date: "July 2025 - September 2025",
+            description: "Launched fullstack prompt template feature to retrieve, store, and display vehicle recall data.",
             skills: [
                 { name: "TypeScript", category: "language" },
+                { name: "Python", category: "language"},
                 { name: "Next.js", category: "framework" },
-                { name: "Tailwind CSS", category: "framework"},
-                { name: "AWS DynamoDB", category: "cloud" },
+                { name: "Redux", category: "framework"},
+                { name: "NHTSA API", category: "tool" },
             ]
         },
         {
             title: "Research Assistant - Computer Vision, AR/VR",
             company: "Makeability Lab, Paul G. Allen School of Computer Science & Engineering",
             date: "June 2025 - present",
-            icon: "/companyIcons/makeabilitylab.png",
-            description: "Building PreviewAR, an AR/VR application that renders 2D images to 3D space, allowing users to preview product images in real-time.",
+            description: "Collaborating Google Research to develop PreviewAR, an image-to-3D tool for e-commerce furniture images.",
             skills: [
                 { name: "C#", category: "language" },
                 { name: ".NET", category: "framework" },
                 { name: "Unity", category: "tool" },
+                { name: "Hunyuan 3D-2", category: "tool"}
             ]
         },
         {
             title: "Research Assistant - Natural Language Processing (NLP)",
             company: "Department of Radiation Oncology, University of Washington Medical Center",
             date: "June 2024 - October 2024",
-            icon: "/companyIcons/uw-medicine.png",
-            description: "Utilized Bidirectional Encoder Representations from Transformers (BERT) LLM to analyze 95,000+ National Cancer Institute (NCI) abstracts to increase categorization accuracy and detect funding trends.",
+            description: "Applied 95,000+ NCI research abstracts to BERT LLM to analyze funding distribution and granularize topics.",
             skills: [
                 { name: "Python", category: "language" },
                 { name: "sklearn", category: "tool" },
@@ -97,7 +96,7 @@ const Experience = () => {
                         width="w-full max-w-4xl"
                         height="h-12"
                         className="flex items-center justify-center"
-                        href="/Caleb_Hu_Resume.pdf" 
+                        href="/Caleb-Hu-Resume.pdf" 
                         download
                     >
                         Download CV

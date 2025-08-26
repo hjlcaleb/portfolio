@@ -30,7 +30,7 @@ const Header = () => {
               bgColor="bg-teal-900" 
               hoverBgColor="hover:bg-teal-700"
               hoverTextColor="hover:text-gray-100"
-              href="https://drive.google.com/file/d/1UrCU3cdF0wqGqma2N3V_mxbG-hjWRsCG/view?usp=sharing"
+              href="https://drive.google.com/file/d/114Dqk8M5d-bN_Ow-PsowCL49Cl3sWWXR/view?usp=sharing"
               isExternal={true}
             >
               Resume/CV

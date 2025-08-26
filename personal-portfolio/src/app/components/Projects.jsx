@@ -112,7 +112,8 @@ const Projects = () => {
             ],
             githubLink: "https://github.com/hjlcaleb/nick-blendz",
             liveLink: "https://nick-blendz.com"
-        }
+        },
+        
     ]
     return (
         <section id="projects" className="min-h-screen flex justify-center transition-smooth bg-gray-50">

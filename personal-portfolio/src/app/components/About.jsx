@@ -85,7 +85,7 @@ const About = () => {
                                 My journey in tech started in high school with game development, which evolved into a deep interest in <strong>full-stack development and artificial intelligence</strong>. Today, I'm focused on creating <strong>scalable web applications</strong> and exploring the intersection of AR/VR with <strong>Human-AI interaction use cases</strong>.
                             </p>
                             <p className="text-gray-700 text-2xl sm:text-xl">
-                                Outside of coding, I enjoy playing basketball, hiking in the Pacific Northwest, experimenting with new recipes, and contributing to pro-bono consulting projects.
+                                Outside of coding, I enjoy playing basketball, hiking in the Pacific Northwest, and going to concerts.
                             </p>
                         </div>
                     </div>
