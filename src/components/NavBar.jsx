@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React, {useState} from 'react'
 
 const NavBar = () => {
@@ -36,12 +35,10 @@ const NavBar = () => {
             onClick={() => setMenuOpen(prev => !prev)}
             aria-label="Toggle mobile menu"
             >
-            <Image 
+            <img 
                 src={menuOpen ? "/xblack.png" : "/navIcon.png"} 
                 alt={menuOpen ? "Close menu" : "Open menu"} 
-                width={30} 
-                height={30} 
-                className="cursor-pointer dark:invert" 
+                className="cursor-pointer dark:invert w-[30px] h-[30px]" 
             />
         </button>
         

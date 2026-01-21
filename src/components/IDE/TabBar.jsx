@@ -1,5 +1,3 @@
-'use client'
-import Image from 'next/image'
 
 export default function TabBar({ openTabs, activeTab, onTabClick, onTabClose }) {
   const getFileName = (path) => {
@@ -16,12 +14,10 @@ export default function TabBar({ openTabs, activeTab, onTabClick, onTabClose }) 
 
     if (iconMap[fileName]) {
       return (
-        <Image 
+        <img 
           src={iconMap[fileName].src}
           alt={fileName} 
-          width={16} 
-          height={16} 
-          className={iconMap[fileName].rounded ? 'rounded-full' : ''}
+          className={`w-4 h-4 ${iconMap[fileName].rounded ? 'rounded-full' : ''}`}
         />
       )
     }

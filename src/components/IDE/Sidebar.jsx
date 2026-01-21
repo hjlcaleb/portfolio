@@ -1,5 +1,3 @@
-'use client'
-import Image from 'next/image'
 import { fileSystemTree } from '../../data/fileSystem'
 
 export default function Sidebar({ onFileSelect, activeFile }) {
@@ -13,12 +11,10 @@ export default function Sidebar({ onFileSelect, activeFile }) {
 
     if (iconMap[fileName]) {
       return (
-        <Image 
+        <img 
           src={iconMap[fileName].src}
           alt={fileName} 
-          width={18} 
-          height={18} 
-          className={iconMap[fileName].rounded ? 'rounded-full' : ''}
+          className={`w-[18px] h-[18px] ${iconMap[fileName].rounded ? 'rounded-full' : ''}`}
         />
       )
     }

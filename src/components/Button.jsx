@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 
 function Button({ 
   children, 
@@ -86,14 +85,14 @@ function Button({
       );
     }
     return (
-      <Link 
+      <a 
         href={href}
         className={buttonClasses}
         style={buttonStyle}
         {...props}
       >
         {children}
-      </Link>
+      </a>
     );
   }
 

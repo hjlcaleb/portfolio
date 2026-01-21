@@ -1,26 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        vscode: {
-          bg: '#1e1e1e',
-          sidebar: '#252526',
-          hover: '#2a2d2e',
-          border: '#3e3e42',
-          blue: '#007acc',
-          selection: '#264f78',
-        }
+        accent: '#007acc',
+        'accent-dark': '#005a9e',
       },
-      fontFamily: {
-        mono: ['Consolas', 'Monaco', 'Courier New', 'monospace'],
-      }
     },
   },
   plugins: [],
-} 
+}

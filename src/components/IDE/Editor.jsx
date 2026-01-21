@@ -1,10 +1,8 @@
-'use client'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
-import Image from 'next/image'
 import { getFileContent } from '../../data/fileSystem'
 
 export default function Editor({ filePath }) {
@@ -13,12 +11,10 @@ export default function Editor({ filePath }) {
       <div className="h-full flex items-center justify-center bg-[#1e1e1e] text-gray-500">
         <div className="text-center">
           <div className="mb-6">
-            <Image 
+            <img 
               src="/headshot.jpg" 
               alt="Caleb Hu" 
-              width={120} 
-              height={120} 
-              className="rounded-full mx-auto border-2 border-gray-700"
+              className="rounded-full mx-auto border-2 border-gray-700 w-[120px] h-[120px]"
             />
           </div>
           <div className="text-xl font-semibold mb-2 text-gray-300">Caleb Hu - Portfolio</div>

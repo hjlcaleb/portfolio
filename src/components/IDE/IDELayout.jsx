@@ -1,5 +1,4 @@
-'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Sidebar from './Sidebar'
 import TabBar from './TabBar'
 import Editor from './Editor'
@@ -8,20 +7,6 @@ export default function IDELayout() {
   const [openTabs, setOpenTabs] = useState(['about.md'])
   const [activeTab, setActiveTab] = useState('about.md')
   const [showMessage, setShowMessage] = useState(false)
-
-  // Keyboard shortcuts
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      // Cmd/Ctrl + W to close tab
-      if ((e.metaKey || e.ctrlKey) && e.key === 'w') {
-        e.preventDefault()
-        handleCloseTab(activeTab)
-      }
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [activeTab])
 
   const handleWindowControl = (action) => {
     setShowMessage(true)
@@ -37,7 +22,7 @@ export default function IDELayout() {
     setActiveTab(filePath)
   }
 
-  const handleCloseTab = (filePath) => {
+  const handleCloseTab = useCallback((filePath) => {
     const newTabs = openTabs.filter(tab => tab !== filePath)
     setOpenTabs(newTabs)
     
@@ -51,7 +36,21 @@ export default function IDELayout() {
         setActiveTab(null)
       }
     }
-  }
+  }, [openTabs, activeTab])
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Cmd/Ctrl + W to close tab
+      if ((e.metaKey || e.ctrlKey) && e.key === 'w') {
+        e.preventDefault()
+        handleCloseTab(activeTab)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [activeTab, handleCloseTab])
 
   return (
     <div className="h-screen flex flex-col bg-[#1e1e1e] text-white overflow-hidden font-sans">

@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 
 const SkillCategory = ({ title, skills }) => {
     return (
@@ -76,12 +75,10 @@ const About = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                     {/* Photo and Description */}
                     <div className="flex justify-center md:justify-start">
-                        <Image 
+                        <img 
                             src="/me.png"
                             alt="Caleb Hu"
-                            width={400}
-                            height={400}
-                            className="rounded-2xl shadow-lg"
+                            className="rounded-2xl shadow-lg w-full max-w-md"
                         />
                     </div>
 
