@@ -1,74 +1,44 @@
 import React from 'react'
 import Image from 'next/image'
-import Typewriter from './Typewriter'
-import Button from './Button'
 
 const Header = () => {
-  const titles = ["Computer Science Student", "Software Developer", "Researcher"];
-
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-white">
-      <div className="flex items-center gap-48">
-        <div className="hidden md:flex">
+    <header className="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 py-3 px-6">
+      <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
+        <div className="flex items-center gap-4">
           <Image 
             src="/headshot.jpg" 
-            alt="Caleb Hu headshot" 
-            width={400} 
-            height={400} 
-            className="rounded-full border-2 border-teal-900 shadow-lg ml-10"
+            alt="Caleb Hu" 
+            width={60} 
+            height={60} 
+            className="rounded-full border-2 border-gray-300 dark:border-gray-700"
           />
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Caleb Hu</h1>
+            <p className="text-sm text-gray-600 dark:text-gray-400">CS @ UW | ML & Data Science | Software Engineer</p>
+          </div>
         </div>
-        <div className="flex flex-col items-center justify-between">
-          <h2 className="text-4xl font-bold mb-4">Hi! I'm</h2>
-          <h1 className="text-8xl font-bold mb-4 whitespace-nowrap text-teal-900">Caleb Hu</h1>
-          <Typewriter words={titles} speed={150} deleteSpeed={50} delay={1000} />
-          <div className="flex flex-row gap-4 mt-8">
-            <Button 
-              width="w-55" 
-              height="h-12" 
-              textSize="text-lg" 
-              bgColor="bg-teal-900" 
-              hoverBgColor="hover:bg-teal-700"
-              hoverTextColor="hover:text-gray-100"
-              href="https://drive.google.com/file/d/114Dqk8M5d-bN_Ow-PsowCL49Cl3sWWXR/view?usp=sharing"
-              isExternal={true}
-            >
-              Resume/CV
-            </Button>
-            <Button 
-              width="w-55" 
-              height="h-12" 
-              textSize="text-lg" 
-              textColor="text-teal-900"
-              bgColor="bg-white" 
-              borderColor="border-teal-900"
-              hoverBgColor="hover:bg-teal-700"
-              hoverTextColor="hover:text-gray-100"
-              href="#contact"
-            >
-              Contact Me
-            </Button>
-          </div>
-          <div className="items-center grid grid-cols-3 gap-2 mt-10">
-            <a className="flex flex-col items-center" href="https://www.github.com/hjlcaleb" target="_blank" rel="noopener noreferrer">
-                              <Image src="/github.png" alt="github" width={50} height={50} />
-                              <h3 className="text-2xl font-black mt-2">Github</h3>
+        <div className="flex items-center gap-4">
+          <a href="mailto:calebdhu@gmail.com" className="text-sm text-gray-700 dark:text-gray-300 hover:text-accent">calebdhu@gmail.com</a>
+          <a href="tel:4257614686" className="text-sm text-gray-700 dark:text-gray-300 hover:text-accent">(425) 761-4686</a>
+          <div className="flex gap-3 ml-2">
+            <a href="https://www.github.com/hjlcaleb" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100">
+              <Image src="/github.png" alt="github" width={20} height={20} className="dark:invert" />
             </a>
-            <a className="flex flex-col items-center" href="mailto:chu552@cs.washington.edu" target="_blank" rel="noopener noreferrer">
-              <Image src="/mail.svg" alt="mail" width={50} height={50} className="rounded-full bg-teal-900 border-teal-900 shadow-lg" />
-              <h3 className="text-2xl font-black mt-2">Email</h3>
-            </a>
-
-            <a className="flex flex-col items-center" href="https://www.linkedin.com/in/calebhu" target="_blank" rel="noopener noreferrer">
-              <Image src="/linkedin.png" alt="linkedin" width={50} height={50} className="rounded-full border-2 bg-teal-900 border-teal-900 shadow-lg" />
-              <h3 className="text-2xl font-black mt-2">LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/calebhu" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100">
+              <Image src="/linkedin.png" alt="linkedin" width={20} height={20} />
             </a>
           </div>
-          
-          
+          <a 
+            href="/Caleb-Hu-Resume.pdf"
+            target="_blank"
+            className="px-4 py-2 bg-accent hover:bg-accent-dark text-white text-sm rounded-lg transition-colors"
+          >
+            Resume
+          </a>
         </div>
       </div>
-    </section>
+    </header>
   )
 }
 

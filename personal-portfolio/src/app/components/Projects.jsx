@@ -2,133 +2,115 @@ import React from 'react'
 import Image from 'next/image'
 import Button from './Button'
 
-const ProjectBlock = ({ title, imagePreview, description, skills, githubLink, liveLink }) => {
+const ProjectBlock = ({ title, subtitle, bullets, skills, githubLink, liveLink }) => {
     return (
-        
-        <div className="bg-white p-8 rounded-lg shadow-lg mb-8 w-full max-w-150 border-l-4 border-teal-900 hover:shadow-2xl transition-shadow">
+        <div className="bg-white dark:bg-gray-900 p-6 md:p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition-shadow h-full flex flex-col">
             <div className="mb-4">
-                <div className="flex justify-center mb-8 w-full">
-                    <Image 
-                        src={imagePreview} 
-                        alt={title} 
-                        width={1920} 
-                        height={1080}
-                        className="w-full h-auto object-cover" 
-                    />
-                </div>
-                <div className="flex justify-between items-center">
-                    <h3 className="text-xl font-bold text-teal-900">{title}</h3>
-                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
+                {subtitle && <p className="text-sm text-gray-600 dark:text-gray-400 italic mb-3">{subtitle}</p>}
             </div>
-            <p className="text-gray-700 mb-4">{description}</p>
-            <div className="flex flex-row gap-4 items-center mb-4">
-                <Button 
-                    bgColor="bg-teal-900" 
-                    hoverBgColor="hover:bg-teal-700" 
-                    href={liveLink} 
-                    isExternal={true}
-                    className="flex items-center justify-center min-w-[120px]"
-                >
-                    View Project
-                </Button>
-                <Button 
-                    bgColor="white" 
-                    borderColor="border-teal-900" 
-                    hoverBgColor="hover:bg-teal-700" 
-                    textColor="text-teal-900" 
-                    hoverTextColor="hover:text-white" 
-                    href={githubLink} 
-                    isExternal={true}
-                    className="flex items-center justify-center min-w-[120px]"
-                >
-                    Github
-                </Button>
-            </div>
-            <div className="flex flex-wrap gap-2">
+            {bullets && (
+                <ul className="list-disc list-inside space-y-2 mb-4 text-gray-700 dark:text-gray-300 text-sm flex-1">
+                    {bullets.map((bullet, index) => (
+                        <li key={index} className="leading-relaxed">{bullet}</li>
+                    ))}
+                </ul>
+            )}
+            <div className="flex flex-wrap gap-2 mb-4">
                 {skills.map((skill, index) => (
                     <span 
                         key={index}
-                        className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            skill.category === 'language' ? 'bg-blue-100 text-blue-800' :
-                            skill.category === 'framework' ? 'bg-green-100 text-green-800' :
-                            skill.category === 'tool' ? 'bg-purple-100 text-purple-800' :
-                            skill.category === 'library' ? 'bg-yellow-100 text-yellow-800':
-                            skill.category === 'cloud' ? 'bg-orange-100 text-orange-800' :
-                            'bg-gray-100 text-gray-800'
-                        }`}
+                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300"
                     >
-                        {skill.name}
+                        {skill}
                     </span>
                 ))}
             </div>
-            
+            {(githubLink || liveLink) && (
+                <div className="flex flex-row gap-3">
+                    {liveLink && (
+                        <Button 
+                            bgColor="bg-accent" 
+                            hoverBgColor="hover:bg-accent-dark" 
+                            href={liveLink} 
+                            isExternal={true}
+                            width="w-auto"
+                            height="h-10"
+                            textSize="text-sm"
+                            className="flex-1"
+                        >
+                            View Project
+                        </Button>
+                    )}
+                    {githubLink && (
+                        <Button 
+                            bgColor="bg-transparent" 
+                            borderColor="border-gray-300 dark:border-gray-700" 
+                            hoverBgColor="hover:bg-gray-100 dark:hover:bg-gray-800" 
+                            textColor="text-gray-900 dark:text-white" 
+                            href={githubLink} 
+                            isExternal={true}
+                            width="w-auto"
+                            height="h-10"
+                            textSize="text-sm"
+                            className="flex-1"
+                        >
+                            GitHub
+                        </Button>
+                    )}
+                </div>
+            )}
         </div>
-         
     )
 }
 
 const Projects = () => {
     const projects = [
         {
-            title: "Space Invaders",
-            imagePreview: "/space-invaders-demo.png",
-            description: "Desktop rendition of 1970s Space Invaders-style video game.",
-            skills: [
-                { name: "Java", category: "language" },
-                { name: "Java Swing", category: "framework" },
-                
+            title: "CodeStepByStep.com",
+            subtitle: "A free web application that helps students at the middle school, high school, and university levels learn fundamental coding concepts.",
+            bullets: [
+                "Devised and scaled a GPT-powered teaching assistant to offer coding support for 95,000+ students and teachers nationwide.",
+                "Programmed a TypeScript throttle with a countdown to prevent spamming and limit submissions for 1,000+ practice problems."
             ],
-            githubLink: "https://github.com/hjlcaleb/space-invaders",
-            liveLink: ""
+            skills: ["TypeScript", "MySQL", "JavaEE", "LangChain4j", "ChromaDB"],
+            liveLink: "https://www.codestepbystep.com"
         },
         {
-            title: "Yoka Tea Website",
-            imagePreview: "/yoka-tea-demo.png",
-            description: "Full-stack website for a local boba tea shop in Seattle, WA.",
-            skills: [
-                { name: "JavaScript", category: "language" },
-                { name: "HTML", category: "language" },
-                { name: "CSS", category: "language" },
-                { name: "React.js", category: "framework" },
-                { name: "Firebase", category: "cloud" }
-                
+            title: "CALEB",
+            subtitle: "Consulting Association's LinkedIn and Email Bot — Proprietary outreach automation software for emailing internal memos to members and sourcing clients for consulting projects.",
+            bullets: [
+                "Authored a full-stack outreach automation platform (React website + Flask backend) used by 4-6 officers to send internal emails to a 40+ student consulting organization and source clients, reducing manual email time by 97.2% (6 hours to 10 minutes).",
+                "Implemented Gmail OAuth, secure contact directory, and Celery-based scheduled email queue (RabbitMQ/Redis), enabling reliable, large-scale personalized email campaigns across 3,900+ contacts; helped source 13 high-profile consulting clients."
             ],
-            githubLink: "https://github.com/webimpactuw/yoka-tea",
-            liveLink: ""
+            skills: ["React.js", "Flask", "Docker", "Celery", "RabbitMQ/Redis", "PostgreSQL"]
         },
         {
-            title: "Nick Blendz Website",
-            imagePreview: "/nick-blendz-demo.png",
-            description: "Full-stack website for a local barber with 30-40 clients.",
-            skills: [
-                { name: "TypeScript", category: "language" },
-                { name: "Next.js", category: "framework" },
-                { name: "Tailwind CSS", category: "framework" },
-                { name: "Clerk", category: "framework"},
-                { name: "Supabase", category: "tool" },
-                { name: "DrizzleORM", category: "library"},
-                { name: "Amazon Web Services (AWS) EC2", category: "cloud" }
-                
+            title: "NFL Team Score Prediction Model",
+            subtitle: "A linear regression model that predicts the scores (points per game) of the remaining matchups in the 2025-26 NFL season.",
+            bullets: [
+                "Architected a Python data pipeline using nflreadpy and Polars to ingest 11 seasons of play-by-play data and compute 9 team-level features (e.g., 20+ yard offensive plays, redzone TD%); preprocessed features with MinMaxScaler and one-hot encodings.",
+                "Trained and optimized a scikit-learn model, achieving an RMSE of 1.92 points on scoring averages in the season's last 2 weeks."
             ],
-            githubLink: "https://github.com/hjlcaleb/nick-blendz",
-            liveLink: "https://nick-blendz.com"
-        },
-        
+            skills: ["Python", "Polars", "scikit-learn", "Pandas", "NumPy", "Jupyter Lab"],
+            githubLink: "https://github.com/hjlcaleb"
+        }
     ]
+
     return (
-        <section id="projects" className="min-h-screen flex justify-center transition-smooth bg-gray-50">
-            <div className="container mx-auto px-4">
-                <h1 className="text-6xl md:text-8xl font-bold mb-12 text-center text-teal-900 mt-40">Projects</h1>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <section id="projects" className="py-20 px-6 scroll-mt-20">
+            <div className="max-w-6xl mx-auto">
+                <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-gray-900 dark:text-white">Projects</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                     {projects.map((proj, index) => (
                         <ProjectBlock key={index} {...proj} />
                     ))}
                 </div>
-                <div className="flex justify-center mb-20">
+                <div className="flex justify-center">
                     <Button 
-                        bgColor="bg-teal-900" 
-                        hoverBgColor="hover:bg-teal-700"
-                        width="w-full max-w-md"
+                        bgColor="bg-accent" 
+                        hoverBgColor="hover:bg-accent-dark"
+                        width="w-auto"
                         height="h-12"
                         className="flex items-center justify-center"
                         href="https://github.com/hjlcaleb"
