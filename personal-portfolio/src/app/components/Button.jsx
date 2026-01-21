@@ -12,7 +12,7 @@ function Button({
   borderWidth = 'border',
   hoverBgColor = 'hover:bg-blue-600',
   hoverTextColor = 'hover:text-white',
-  rounded = 'rounded-3xl',
+  rounded = 'rounded-lg',
   fontWeight = 'font-bold',
   className = '',
   href = '',

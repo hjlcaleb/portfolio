@@ -41,7 +41,7 @@ const Typewriter = ({ words, speed = 100, deleteSpeed = 50, delay = 2000 }) => {
   }, [currentText, isDeleting, currentWordIndex, words, speed, deleteSpeed, delay]);
 
   return (
-    <span className="text-2xl font-bold text-gray-600">
+    <span className="text-xl md:text-2xl font-semibold text-gray-600 dark:text-gray-400">
       {currentText}
       <span className="animate-pulse">|</span>
     </span>

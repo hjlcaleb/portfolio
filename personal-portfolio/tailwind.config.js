@@ -8,11 +8,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        teal: {
-          primary: '#193A4A',
-          light: '#2A5A6A',
-          dark: '#0F2A3A',
+        vscode: {
+          bg: '#1e1e1e',
+          sidebar: '#252526',
+          hover: '#2a2d2e',
+          border: '#3e3e42',
+          blue: '#007acc',
+          selection: '#264f78',
         }
+      },
+      fontFamily: {
+        mono: ['Consolas', 'Monaco', 'Courier New', 'monospace'],
       }
     },
   },
