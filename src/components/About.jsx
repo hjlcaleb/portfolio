@@ -76,7 +76,7 @@ const About = () => {
                     {/* Photo and Description */}
                     <div className="flex justify-center md:justify-start">
                         <img 
-                            src="/me.png"
+                            src={`${process.env.PUBLIC_URL}/me.png`}
                             alt="Caleb Hu"
                             className="rounded-2xl shadow-lg w-full max-w-md"
                         />

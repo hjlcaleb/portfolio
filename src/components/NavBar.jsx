@@ -36,7 +36,7 @@ const NavBar = () => {
             aria-label="Toggle mobile menu"
             >
             <img 
-                src={menuOpen ? "/xblack.png" : "/navIcon.png"} 
+                src={menuOpen ? `${process.env.PUBLIC_URL}/xblack.png` : `${process.env.PUBLIC_URL}/navIcon.png`}
                 alt={menuOpen ? "Close menu" : "Open menu"} 
                 className="cursor-pointer dark:invert w-[30px] h-[30px]" 
             />

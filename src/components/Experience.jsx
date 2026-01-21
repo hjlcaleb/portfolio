@@ -75,7 +75,7 @@ const Experience = () => {
                         width="w-full max-w-4xl"
                         height="h-12"
                         className="flex items-center justify-center"
-                        href="/Caleb-Hu-Resume.pdf" 
+                        href={`${process.env.PUBLIC_URL}/Caleb-Hu-Resume.pdf`}
                         isExternal={true}
                     >
                         Download Resume

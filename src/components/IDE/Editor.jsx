@@ -12,7 +12,7 @@ export default function Editor({ filePath }) {
         <div className="text-center">
           <div className="mb-6">
             <img 
-              src="/headshot.jpg" 
+              src={`${process.env.PUBLIC_URL}/headshot.jpg`}
               alt="Caleb Hu" 
               className="rounded-full mx-auto border-2 border-gray-700 w-[120px] h-[120px]"
             />
@@ -35,12 +35,13 @@ export default function Editor({ filePath }) {
   }
 
   if (fileContent.type === 'pdf') {
+    const pdfUrl = fileContent.url.startsWith('http') ? fileContent.url : `${process.env.PUBLIC_URL}${fileContent.url}`;
     return (
       <div className="h-full bg-[#1e1e1e] flex flex-col">
         <div className="p-4 border-b border-[#3e3e42] flex items-center justify-between">
           <h2 className="text-lg font-semibold text-white">Resume Preview</h2>
           <a
-            href={fileContent.url}
+            href={pdfUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors"
@@ -50,7 +51,7 @@ export default function Editor({ filePath }) {
         </div>
         <div className="flex-1 overflow-hidden">
           <iframe
-            src={fileContent.url}
+            src={pdfUrl}
             className="w-full h-full border-0"
             title="Resume PDF"
           />
@@ -110,6 +111,13 @@ export default function Editor({ filePath }) {
                 <p className="text-gray-300 leading-relaxed mb-4">
                   {children}
                 </p>
+              ),
+              img: ({ src, alt, ...props }) => (
+                <img
+                  src={src?.startsWith('http') ? src : `${process.env.PUBLIC_URL}${src}`}
+                  alt={alt}
+                  {...props}
+                />
               ),
               a: ({ href, children }) => (
                 <a

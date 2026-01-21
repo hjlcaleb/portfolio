@@ -6,10 +6,10 @@ export default function TabBar({ openTabs, activeTab, onTabClick, onTabClose }) 
 
   const getFileIcon = (fileName) => {
     const iconMap = {
-      'about.md': { src: '/me.png', rounded: true },
-      'internships.md': { src: '/internships.png', rounded: false },
-      'projects.md': { src: '/projects.png', rounded: false },
-      'leadership.md': { src: '/leadership.png', rounded: false }
+      'about.md': { src: `${process.env.PUBLIC_URL}/me.png`, rounded: true },
+      'internships.md': { src: `${process.env.PUBLIC_URL}/internships.png`, rounded: false },
+      'projects.md': { src: `${process.env.PUBLIC_URL}/projects.png`, rounded: false },
+      'leadership.md': { src: `${process.env.PUBLIC_URL}/leadership.png`, rounded: false }
     }
 
     if (iconMap[fileName]) {
