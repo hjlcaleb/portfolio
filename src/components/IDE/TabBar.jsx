@@ -34,9 +34,9 @@ export default function TabBar({ openTabs, activeTab, onTabClick, onTabClose }) 
         return (
           <div
             key={tab}
-            className={`h-full px-4 flex items-center gap-2 text-sm cursor-pointer border-r border-[#1e1e1e] group ${
+            className={`h-full px-2 flex items-center gap-2 text-sm cursor-pointer border-r border-[#1e1e1e] group ${
               activeTab === tab
-                ? 'bg-[#1e1e1e] text-white border-t-2 border-t-blue-500'
+                ? 'bg-[#1e1e1e] text-white'
                 : 'bg-[#2d2d30] text-gray-400 hover:bg-[#323233]'
             }`}
             onClick={() => onTabClick(tab)}
@@ -44,7 +44,7 @@ export default function TabBar({ openTabs, activeTab, onTabClick, onTabClose }) 
             {getFileIcon(fileName)}
             <span className="whitespace-nowrap">{fileName}</span>
             <button
-              className="ml-2 opacity-0 group-hover:opacity-100 hover:bg-[#3e3e42] rounded px-1"
+              className="ml-2 opacity-0 group-hover:opacity-100 hover:bg-[#3e3e42] rounded-sm w-5 h-5 flex items-center justify-center text-lg leading-none"
               onClick={(e) => {
                 e.stopPropagation()
                 onTabClose(tab)

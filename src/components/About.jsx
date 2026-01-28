@@ -88,7 +88,7 @@ const About = () => {
                                 I'm a student studying computer science at the University of Washington, passionate about <strong>building innovative, impact-driven solutions</strong>. Growing up with amniotic band syndrome and being fitted for various <strong>prosthetics</strong> from a young age, I developed a deep appreciation for how technology can <strong>empower and transform lives</strong>. 
                             </p>
                             <p className="text-base leading-relaxed">
-                                My journey in tech started in high school with game development, which evolved into a deep interest in <strong>full-stack development and artificial intelligence</strong>. Today, I'm focused on creating <strong>scalable web applications</strong> and exploring the intersection of AR/VR with <strong>Human-AI interaction use cases</strong>.
+                                My journey in tech started in high school with game development, which evolved into a deep interest in <strong>full-stack development and machine learning</strong>. Today, I'm focused on creating <strong>scalable web applications</strong> and exploring the intersection of AR/VR with <strong>Human-AI interaction use cases</strong>.
                             </p>
                             <p className="text-base leading-relaxed">
                                 Outside of coding, I enjoy playing basketball, hiking in the Pacific Northwest, and going to concerts.

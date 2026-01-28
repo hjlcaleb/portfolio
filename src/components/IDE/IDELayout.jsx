@@ -7,6 +7,8 @@ export default function IDELayout() {
   const [openTabs, setOpenTabs] = useState(['about.md'])
   const [activeTab, setActiveTab] = useState('about.md')
   const [showMessage, setShowMessage] = useState(false)
+  const [sidebarWidth, setSidebarWidth] = useState(256)
+  const [isResizing, setIsResizing] = useState(false)
 
   const handleWindowControl = (action) => {
     setShowMessage(true)
@@ -52,6 +54,36 @@ export default function IDELayout() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [activeTab, handleCloseTab])
 
+  // Sidebar resize handlers
+  const handleMouseDown = () => {
+    setIsResizing(true)
+  }
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (isResizing) {
+        const newWidth = e.clientX
+        if (newWidth >= 180 && newWidth <= 500) {
+          setSidebarWidth(newWidth)
+        }
+      }
+    }
+
+    const handleMouseUp = () => {
+      setIsResizing(false)
+    }
+
+    if (isResizing) {
+      document.addEventListener('mousemove', handleMouseMove)
+      document.addEventListener('mouseup', handleMouseUp)
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseup', handleMouseUp)
+    }
+  }, [isResizing])
+
   return (
     <div className="h-screen flex flex-col bg-[#1e1e1e] text-white overflow-hidden font-sans">
       {/* "Don't Leave" Message */}
@@ -62,7 +94,7 @@ export default function IDELayout() {
       )}
 
       {/* Title Bar - macOS Style */}
-      <div className="h-10 bg-[#323233] border-b border-[#1e1e1e] flex items-center px-4 text-xs text-gray-400">
+      <div className="h-8 bg-[#323233] border-b border-[#1e1e1e] flex items-center px-4 text-xs text-gray-400">
         {/* macOS Window Controls */}
         <div className="flex items-center gap-2 mr-auto">
           <div 
@@ -78,17 +110,25 @@ export default function IDELayout() {
         
         {/* Center Title */}
         <div className="absolute left-1/2 transform -translate-x-1/2 text-sm text-gray-300">
-          caleb hu - software engineer
+          <strong>caleb hu - software engineer</strong>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 flex overflow-hidden">
         {/* Sidebar */}
-        <Sidebar
-          onFileSelect={handleFileSelect}
-          activeFile={activeTab}
-        />
+        <div className="relative flex-shrink-0" style={{ width: `${sidebarWidth}px` }}>
+          <Sidebar
+            onFileSelect={handleFileSelect}
+            activeFile={activeTab}
+          />
+          {/* Resize Handle */}
+          <div
+            className="absolute top-0 right-0 w-1 h-full cursor-col-resize hover:bg-[#007acc] transition-colors"
+            onMouseDown={handleMouseDown}
+            style={{ userSelect: 'none' }}
+          />
+        </div>
 
         {/* Editor Area */}
         <div className="flex-1 flex flex-col overflow-hidden">

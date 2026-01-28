@@ -14,7 +14,7 @@ export default function Sidebar({ onFileSelect, activeFile }) {
         <img 
           src={iconMap[fileName].src}
           alt={fileName} 
-          className={`w-[18px] h-[18px] ${iconMap[fileName].rounded ? 'rounded-full' : ''}`}
+          className={`w-[16px] h-[16px] ${iconMap[fileName].rounded ? 'rounded-full' : ''}`}
         />
       )
     }
@@ -25,18 +25,18 @@ export default function Sidebar({ onFileSelect, activeFile }) {
   }
 
   return (
-    <div className="w-64 bg-[#252526] border-r border-[#1e1e1e] h-full flex flex-col font-sans">
-      <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-[#1e1e1e]">
+    <div className="w-full bg-[#252526] border-r border-[#1e1e1e] h-full flex flex-col font-sans">
+      <div className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-[#1e1e1e]">
         Portfolio
       </div>
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1">
         {fileSystemTree.map((file) => (
           <div
             key={file.path}
-            className={`px-4 py-1.5 flex items-center gap-2 cursor-pointer text-[13px] ${
+            className={`px-4 py-0 flex items-center gap-2 cursor-pointer text-[13px] transition-none border ${
               activeFile === file.path
-                ? 'bg-[#37373d] text-white'
-                : 'text-gray-300 hover:bg-[#2a2d2e]'
+                ? 'bg-[#03395e] text-white border-[#027fd4]'
+                : 'text-gray-300 hover:bg-[#2a2d2e] border-transparent'
             }`}
             onClick={() => onFileSelect(file.path)}
           >

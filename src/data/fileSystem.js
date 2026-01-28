@@ -32,7 +32,7 @@ const developer = {
 
 I'm a student studying computer science at the University of Washington, passionate about **building innovative, impact-driven solutions**. Growing up with amniotic band syndrome and being fitted for various prosthetics from a young age, I developed a deep appreciation for how technology can empower and transform lives.
 
-My journey in tech started in high school with game development, which evolved into a deep interest in **full-stack development and artificial intelligence**. Today, I'm focused on creating scalable web applications and exploring the intersection of AR/VR with Human-AI interaction use cases.
+My journey in tech started in high school with game development, which evolved into a deep interest in **full-stack development and machine learning**. Today, I'm focused on creating scalable web applications and exploring the intersection of AR/VR with Human-AI interaction use cases.
 
 ## Skills
 
