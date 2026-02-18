@@ -241,7 +241,7 @@ export default function TypewriterHero({ greeting, identities, photo, bio }) {
           setTimeout(() => {
             setIsPaused(false)
             setIsDeleting(true)
-          }, 1800)
+          }, 900)
         }
       } else {
         if (displayText.length > 0) {
