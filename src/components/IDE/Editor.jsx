@@ -65,8 +65,8 @@ export default function Editor({ filePath }) {
   if (fileContent.type === 'cards') {
     return (
       <div key={filePath} className="h-full bg-[#1e1e1e] overflow-y-auto" style={{ animation: 'fadeUp 0.35s ease-out' }}>
-        <div className="max-w-4xl mx-auto p-8">
-          <h1 className="text-3xl font-bold text-white mb-2 pb-2">
+        <div className="max-w-4xl mx-auto p-4 md:p-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2 pb-2">
             {fileContent.title}
           </h1>
           {fileContent.cards.map((card, i) => (
@@ -79,7 +79,7 @@ export default function Editor({ filePath }) {
 
   return (
     <div key={filePath} className="h-full bg-[#1e1e1e] overflow-y-auto" style={{ animation: 'fadeUp 0.35s ease-out' }}>
-      <div className="max-w-4xl mx-auto p-8">
+      <div className="max-w-4xl mx-auto p-4 md:p-8">
         {fileContent.hero && (
           <TypewriterHero greeting={fileContent.hero.greeting} identities={fileContent.hero.identities} photo={fileContent.hero.photo} bio={fileContent.hero.bio} />
         )}
@@ -113,17 +113,17 @@ export default function Editor({ filePath }) {
                 )
               },
               h1: ({ children }) => (
-                <h1 className="text-3xl font-bold text-white mb-2 pb-2 border-b border-[#3e3e42]">
+                <h1 className="text-2xl md:text-3xl font-bold text-white mb-2 pb-2 border-b border-[#3e3e42]">
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
-                <h2 className="text-2xl font-semibold text-white mt-3 mb-3">
+                <h2 className="text-xl md:text-2xl font-semibold text-white mt-3 mb-3">
                   {children}
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 className="text-xl font-semibold text-gray-200 mt-6 mb-2">
+                <h3 className="text-base md:text-xl font-semibold text-gray-200 mt-6 mb-2">
                   {children}
                 </h3>
               ),

@@ -12,21 +12,21 @@ export default function ExperienceCard({ icon, iconType, title, subtitle, descri
         {icon && (iconType === 'video' ? (
           <video
             src={icon}
-            style={{ width: 48, height: 48, objectFit: 'cover', borderRadius: 4, flexShrink: 0 }}
+            style={{ width: 40, height: 40, objectFit: 'cover', borderRadius: 4, flexShrink: 0 }}
             autoPlay loop muted playsInline
           />
         ) : (
           <img
             src={icon}
             alt=""
-            style={{ width: 48, height: 48, objectFit: 'contain', borderRadius: 4, flexShrink: 0 }}
+            style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4, flexShrink: 0 }}
           />
         ))}
         <div className="flex-1 min-w-0">
           {title.includes(' | ') ? (
-            <div className="flex justify-between items-baseline gap-4">
-              <div className="flex items-center gap-1">
-                <div className="text-white font-semibold text-lg leading-tight">{title.split(' | ')[0]}</div>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0.5 sm:gap-4">
+              <div className="flex items-center gap-1 min-w-0">
+                <div className="text-white font-semibold text-base md:text-lg leading-tight truncate">{title.split(' | ')[0]}</div>
                 <svg
                   className={`w-4 h-4 text-gray-400 flex-shrink-0 ${isOpen ? '' : '-rotate-90'}`}
                   fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -34,11 +34,11 @@ export default function ExperienceCard({ icon, iconType, title, subtitle, descri
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
-              <div className="text-gray-400 text-sm flex-shrink-0">{title.split(' | ')[1]}</div>
+              <div className="text-gray-400 text-xs sm:text-sm flex-shrink-0">{title.split(' | ')[1]}</div>
             </div>
           ) : (
             <div className="flex items-center gap-1">
-              <div className="text-white font-semibold text-lg leading-tight">{title}</div>
+              <div className="text-white font-semibold text-base md:text-lg leading-tight">{title}</div>
               <svg
                 className={`w-4 h-4 text-gray-400 flex-shrink-0 ${isOpen ? '' : '-rotate-90'}`}
                 fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -47,7 +47,7 @@ export default function ExperienceCard({ icon, iconType, title, subtitle, descri
               </svg>
             </div>
           )}
-          {subtitle && <div className="text-gray-400 text-sm mt-0.5">{subtitle}</div>}
+          {subtitle && <div className="text-gray-400 text-xs md:text-sm mt-0.5">{subtitle}</div>}
         </div>
       </button>
       {isOpen && (
