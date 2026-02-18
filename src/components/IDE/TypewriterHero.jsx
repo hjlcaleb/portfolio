@@ -112,10 +112,10 @@ function CVResearcherText({ text, total }) {
 
 function SeahawksFanText({ text }) {
   const textRef = useRef(null)
+  const imgRef = useRef(null)
   const animRef = useRef(null)
   const currentX = useRef(0)
   const targetX = useRef(0)
-  const [offsetX, setOffsetX] = useState(0)
 
   useEffect(() => {
     if (textRef.current) targetX.current = textRef.current.offsetWidth
@@ -126,7 +126,8 @@ function SeahawksFanText({ text }) {
       const diff = targetX.current - currentX.current
       if (Math.abs(diff) > 0.1) {
         currentX.current += diff * 0.15
-        setOffsetX(currentX.current)
+        if (imgRef.current)
+          imgRef.current.style.transform = `translateY(-50%) translateX(${currentX.current + 4}px)`
       }
       animRef.current = requestAnimationFrame(tick)
     }
@@ -138,49 +139,49 @@ function SeahawksFanText({ text }) {
     <span style={{ display: 'inline-flex', alignItems: 'center', position: 'relative', paddingRight: 30 }}>
       <span ref={textRef} style={{ color: '#9ca3af', fontSize: '1.2rem', fontFamily: "'Oswald', sans-serif", fontWeight: 700, letterSpacing: '0.05em' }}>{text}</span>
       <img
+        ref={imgRef}
         src={`${process.env.PUBLIC_URL}/introIcons/seahawk.png`}
         alt=""
         style={{
           width: 24, height: 24, objectFit: 'contain',
-          position: 'absolute', top: '50%', transform: 'translateY(-50%)',
-          left: offsetX + 4,
+          position: 'absolute', top: '50%', left: 0,
+          transform: 'translateY(-50%) translateX(4px)',
+          willChange: 'transform',
         }}
       />
     </span>
   )
 }
 
-function F1EnjoyerText({ text }) {
+function F1EnjoyerText({ fullText }) {
+  const imgRef = useRef(null)
   const animRef = useRef(null)
   const startTime = useRef(null)
-  const [carX, setCarX] = useState(0)
-  const [carOpacity, setCarOpacity] = useState(1)
-
-  const DURATION = 1000   // ms total
-  const END_X = 370      // px — well past the text
 
   useEffect(() => {
     startTime.current = null
     cancelAnimationFrame(animRef.current)
 
+    const DURATION = 950
+    const END_X = 460
+
     const tick = (ts) => {
       if (!startTime.current) startTime.current = ts
       const t = Math.min((ts - startTime.current) / DURATION, 1)
-
-      // Ease-in (t²) for acceleration feel
       const x = t * t * END_X
-      // Fade out in the last 35%
-      const opacity = t < 0.65 ? 1 : 1 - (t - 0.65) / 0.35
+      const opacity = t < 0.68 ? 1 : 1 - (t - 0.68) / 0.32
 
-      setCarX(x)
-      setCarOpacity(opacity)
+      if (imgRef.current) {
+        imgRef.current.style.transform = `translateY(-50%) translateX(${x}px) rotate(180deg)`
+        imgRef.current.style.opacity = opacity
+      }
 
       if (t < 1) animRef.current = requestAnimationFrame(tick)
     }
 
     animRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(animRef.current)
-  }, [])  // one-shot on mount
+  }, [])
 
   return (
     <span style={{ display: 'inline-flex', alignItems: 'center', position: 'relative' }}>
@@ -191,16 +192,18 @@ function F1EnjoyerText({ text }) {
         fontWeight: 700,
         fontStyle: 'italic',
         letterSpacing: '0.06em',
-      }}>{text}</span>
+      }}>
+        {fullText || 'F1 (LeClerc) Enthusiast'}
+      </span>
       <img
+        ref={imgRef}
         src={`${process.env.PUBLIC_URL}/introIcons/ferrari.png`}
         alt=""
         style={{
           width: 44, height: 44, objectFit: 'contain',
-          position: 'absolute', top: '50%',
-          transform: 'translateY(-50%) rotate(180deg)',
-          left: carX,
-          opacity: carOpacity,
+          position: 'absolute', top: '50%', left: 0,
+          transform: 'translateY(-50%) translateX(0px) rotate(180deg)',
+          willChange: 'transform, opacity',
           mixBlendMode: 'screen',
           pointerEvents: 'none',
         }}
@@ -281,7 +284,7 @@ export default function TypewriterHero({ greeting, identities, photo, bio }) {
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-3 border-none">{greeting}</h1>
         <div className="flex items-center mb-5" style={{ minHeight: '1.75rem', opacity: isVisible ? 1 : 0, transition: 'opacity 0.25s ease' }}>
           {Renderer ? (
-            <Renderer text={displayText} total={currentIdentity.length} />
+            <Renderer text={displayText} total={currentIdentity.length} fullText={currentIdentity} />
           ) : (
             <span className="text-xl text-gray-400">
               {displayText}
