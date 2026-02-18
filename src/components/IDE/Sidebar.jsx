@@ -3,7 +3,7 @@ import { fileSystemTree } from '../../data/fileSystem'
 export default function Sidebar({ onFileSelect, activeFile }) {
   const getFileIcon = (fileName) => {
     const iconMap = {
-      'about.md': { src: `${process.env.PUBLIC_URL}/me.png`, rounded: true },
+      'README.md': { src: `${process.env.PUBLIC_URL}/me.png`, rounded: false },
       'internships.md': { src: `${process.env.PUBLIC_URL}/internships.png`, rounded: false },
       'projects.md': { src: `${process.env.PUBLIC_URL}/projects.png`, rounded: false },
       'leadership.md': { src: `${process.env.PUBLIC_URL}/leadership.png`, rounded: false }
@@ -74,7 +74,7 @@ export default function Sidebar({ onFileSelect, activeFile }) {
         {fileSystemTree.map((file) => (
           <div
             key={file.path}
-            className={`px-4 py-0 flex items-center gap-2 cursor-pointer text-[13px] transition-none border ${
+            className={`px-4 py-2 md:py-1 flex items-center gap-2 cursor-pointer text-[13px] transition-none border ${
               activeFile === file.path
                 ? 'bg-[#03395e] text-white border-[#027fd4]'
                 : 'text-gray-300 hover:bg-[#2a2d2e] border-transparent'

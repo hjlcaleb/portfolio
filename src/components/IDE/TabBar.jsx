@@ -6,10 +6,7 @@ export default function TabBar({ openTabs, activeTab, onTabClick, onTabClose }) 
 
   const getFileIcon = (fileName) => {
     const iconMap = {
-      'about.md': { src: `${process.env.PUBLIC_URL}/me.png`, rounded: true },
-      'internships.md': { src: `${process.env.PUBLIC_URL}/internships.png`, rounded: false },
-      'projects.md': { src: `${process.env.PUBLIC_URL}/projects.png`, rounded: false },
-      'leadership.md': { src: `${process.env.PUBLIC_URL}/leadership.png`, rounded: false }
+      'README.md': { src: `${process.env.PUBLIC_URL}/me.png`, rounded: true },
     }
 
     if (iconMap[fileName]) {
@@ -44,7 +41,7 @@ export default function TabBar({ openTabs, activeTab, onTabClick, onTabClose }) 
             {getFileIcon(fileName)}
             <span className="whitespace-nowrap">{fileName}</span>
             <button
-              className="ml-2 opacity-0 group-hover:opacity-100 hover:bg-[#3e3e42] rounded-sm w-5 h-5 flex items-center justify-center text-lg leading-none"
+              className="ml-2 opacity-60 md:opacity-0 md:group-hover:opacity-100 hover:opacity-100 hover:bg-[#3e3e42] rounded-sm w-6 h-6 md:w-5 md:h-5 flex items-center justify-center text-lg leading-none"
               onClick={(e) => {
                 e.stopPropagation()
                 onTabClose(tab)

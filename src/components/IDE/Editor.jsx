@@ -4,6 +4,8 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import { getFileContent } from '../../data/fileSystem'
+import ExperienceCard from './ExperienceCard'
+import TypewriterHero from './TypewriterHero'
 
 export default function Editor({ filePath }) {
   if (!filePath) {
@@ -37,7 +39,7 @@ export default function Editor({ filePath }) {
   if (fileContent.type === 'pdf') {
     const pdfUrl = fileContent.url.startsWith('http') ? fileContent.url : `${process.env.PUBLIC_URL}${fileContent.url}`;
     return (
-      <div className="h-full bg-[#1e1e1e] flex flex-col">
+      <div key={filePath} className="h-full bg-[#1e1e1e] flex flex-col" style={{ animation: 'fadeUp 0.35s ease-out' }}>
         <div className="p-4 border-b border-[#3e3e42] flex items-center justify-between">
           <h2 className="text-lg font-semibold text-white">Resume Preview</h2>
           <a
@@ -60,9 +62,27 @@ export default function Editor({ filePath }) {
     )
   }
 
+  if (fileContent.type === 'cards') {
+    return (
+      <div key={filePath} className="h-full bg-[#1e1e1e] overflow-y-auto" style={{ animation: 'fadeUp 0.35s ease-out' }}>
+        <div className="max-w-4xl mx-auto p-8">
+          <h1 className="text-3xl font-bold text-white mb-2 pb-2">
+            {fileContent.title}
+          </h1>
+          {fileContent.cards.map((card, i) => (
+            <ExperienceCard key={i} {...card} />
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className="h-full bg-[#1e1e1e] overflow-y-auto">
+    <div key={filePath} className="h-full bg-[#1e1e1e] overflow-y-auto" style={{ animation: 'fadeUp 0.35s ease-out' }}>
       <div className="max-w-4xl mx-auto p-8">
+        {fileContent.hero && (
+          <TypewriterHero greeting={fileContent.hero.greeting} identities={fileContent.hero.identities} photo={fileContent.hero.photo} bio={fileContent.hero.bio} />
+        )}
         <div className="prose prose-invert prose-pre:bg-[#1e1e1e] prose-pre:border prose-pre:border-[#3e3e42] max-w-none">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -93,12 +113,12 @@ export default function Editor({ filePath }) {
                 )
               },
               h1: ({ children }) => (
-                <h1 className="text-3xl font-bold text-white mb-4 pb-2 border-b border-[#3e3e42]">
+                <h1 className="text-3xl font-bold text-white mb-2 pb-2 border-b border-[#3e3e42]">
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
-                <h2 className="text-2xl font-semibold text-white mt-8 mb-3">
+                <h2 className="text-2xl font-semibold text-white mt-3 mb-3">
                   {children}
                 </h2>
               ),
@@ -171,6 +191,14 @@ export default function Editor({ filePath }) {
             {fileContent.content}
           </ReactMarkdown>
         </div>
+        {fileContent.sections && fileContent.sections.map((section, si) => (
+          <div key={si} className="mt-6">
+            <h2 className="text-2xl font-semibold text-white mt-3 mb-3">{section.title}</h2>
+            {section.cards.map((card, ci) => (
+              <ExperienceCard key={ci} {...card} />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   )
