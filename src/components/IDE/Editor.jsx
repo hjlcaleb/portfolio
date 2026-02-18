@@ -69,9 +69,11 @@ export default function Editor({ filePath }) {
           <h1 className="text-2xl md:text-3xl font-bold text-white mb-2 pb-2">
             {fileContent.title}
           </h1>
-          {fileContent.cards.map((card, i) => (
-            <ExperienceCard key={i} {...card} />
-          ))}
+          <div className="border border-[#3e3e42] divide-y divide-[#3e3e42]">
+            {fileContent.cards.map((card, i) => (
+              <ExperienceCard key={i} {...card} />
+            ))}
+          </div>
         </div>
       </div>
     )
@@ -191,14 +193,20 @@ export default function Editor({ filePath }) {
             {fileContent.content}
           </ReactMarkdown>
         </div>
-        {fileContent.sections && fileContent.sections.map((section, si) => (
-          <div key={si} className="mt-6">
-            <h2 className="text-2xl font-semibold text-white mt-3 mb-3">{section.title}</h2>
-            {section.cards.map((card, ci) => (
-              <ExperienceCard key={ci} {...card} />
+        {fileContent.sections && (
+          <div className="mb-10">
+            {fileContent.sections.map((section, si) => (
+              <div key={si} className="mt-6">
+                <h2 className="text-2xl font-semibold text-white mt-3 mb-3">{section.title}</h2>
+                <div className="border border-[#3e3e42] divide-y divide-[#3e3e42]">
+                  {section.cards.map((card, ci) => (
+                    <ExperienceCard key={ci} {...card} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-        ))}
+        )}
       </div>
     </div>
   )

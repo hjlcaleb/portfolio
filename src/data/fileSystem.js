@@ -33,14 +33,14 @@ export const fileSystem = {
     {
       title: 'Work Experience',
       cards: [
-        // {
-        //   icon: '/experienceIcons/chewy.png',
-        //   iconType: 'image',
-        //   title: 'Incoming Software Engineer Intern | June 2026 - December 2026',
-        //   subtitle: 'Chewy · Bellevue, WA',
-        //   description: ['Incoming Summer + Fall 2026 - Applied AI/ML for internal & customer-facing tools across Chewy’s ecosystem.'],
-        //   links: []
-        // },
+        {
+          icon: '/experienceIcons/chewy.png',
+          iconType: 'image',
+          title: 'Incoming Software Engineer Intern | June 2026 - December 2026',
+          subtitle: 'Chewy · Bellevue, WA',
+          description: ['Incoming Summer + Fall 2026 - Applied AI/ML for internal & customer-facing tools across Chewy’s ecosystem.'],
+          links: []
+        },
         {
           icon: '/experienceIcons/makeabilitylab.png',
           iconType: 'image',

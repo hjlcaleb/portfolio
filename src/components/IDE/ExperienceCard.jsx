@@ -4,7 +4,7 @@ export default function ExperienceCard({ icon, iconType, title, subtitle, descri
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="border border-[#3e3e42] overflow-hidden">
+    <div className="overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center gap-3 p-4 text-left hover:bg-[#2a2a2a]"
