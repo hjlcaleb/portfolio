@@ -136,8 +136,8 @@ function SeahawksFanText({ text }) {
   }, [])
 
   return (
-    <span style={{ display: 'inline-flex', alignItems: 'center', position: 'relative', paddingRight: 30 }}>
-      <span ref={textRef} style={{ color: '#9ca3af', fontSize: '1.2rem', fontFamily: "'Oswald', sans-serif", fontWeight: 700, letterSpacing: '0.05em' }}>{text}</span>
+    <span style={{ display: 'inline-flex', alignItems: 'center', position: 'relative', paddingRight: 30, height: '2rem' }}>
+      <span ref={textRef} style={{ color: '#9ca3af', fontSize: '1.2rem', fontFamily: "'Oswald', sans-serif", fontWeight: 700, letterSpacing: '0.05em', lineHeight: '2rem' }}>{text}</span>
       <img
         ref={imgRef}
         src={`${process.env.PUBLIC_URL}/introIcons/seahawk.png`}
@@ -282,7 +282,7 @@ export default function TypewriterHero({ greeting, identities, photo, bio }) {
       )}
       <div className="flex-1 min-w-0">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-3 border-none">{greeting}</h1>
-        <div className="flex items-center mb-5" style={{ minHeight: '1.75rem', opacity: isVisible ? 1 : 0, transition: 'opacity 0.25s ease' }}>
+        <div className="flex items-center mb-5" style={{ height: '2rem', overflow: 'visible', opacity: isVisible ? 1 : 0, transition: 'opacity 0.25s ease' }}>
           {Renderer ? (
             <Renderer text={displayText} total={currentIdentity.length} fullText={currentIdentity} />
           ) : (
