@@ -168,7 +168,7 @@ function F1EnjoyerText({ fullText }) {
     const tick = (ts) => {
       if (!startTime.current) startTime.current = ts
       const t = Math.min((ts - startTime.current) / DURATION, 1)
-      const x = t * t * END_X
+      const x = t * END_X
       const opacity = t < 0.68 ? 1 : 1 - (t - 0.68) / 0.32
 
       if (imgRef.current) {
