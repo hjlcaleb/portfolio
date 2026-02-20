@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import Sidebar from './Sidebar'
 import TabBar from './TabBar'
 import Editor from './Editor'
+import Fireworks from './Fireworks'
 
 export default function IDELayout() {
   const [openTabs, setOpenTabs] = useState(['README.md'])
@@ -10,6 +11,8 @@ export default function IDELayout() {
   const [sidebarWidth, setSidebarWidth] = useState(256)
   const [isResizing, setIsResizing] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [fireworksActive, setFireworksActive] = useState(false)
+  const [fireworksKey, setFireworksKey] = useState(0)
 
   const handleWindowControl = () => {
     setShowMessage(true)
@@ -72,9 +75,11 @@ export default function IDELayout() {
   return (
     <div className="h-screen flex flex-col bg-[#1e1e1e] text-white overflow-hidden font-sans">
 
+      <Fireworks key={fireworksKey} active={fireworksActive} onComplete={() => setFireworksActive(false)} />
+
       {showMessage && (
         <div className="absolute top-16 left-1/2 transform -translate-x-1/2 z-50 bg-[#007acc] text-white px-6 py-3 rounded-lg shadow-lg animate-bounce">
-          <span className="text-sm font-semibold">no, don't leave! :(</span>
+          <span className="text-sm font-semibold">don't leave! :(</span>
         </div>
       )}
 
@@ -95,7 +100,8 @@ export default function IDELayout() {
               onClick={handleWindowControl} />
             <div className="w-3 h-3 rounded-full bg-[#ffbd2e] hover:bg-[#ffbd2e]/80 cursor-pointer transition-all active:scale-90"
               onClick={handleWindowControl} />
-            <div className="w-3 h-3 rounded-full bg-[#27c93f] hover:bg-[#27c93f]/80 cursor-pointer transition-all active:scale-90" />
+            <div className="w-3 h-3 rounded-full bg-[#27c93f] hover:bg-[#27c93f]/80 cursor-pointer transition-all active:scale-90"
+              onClick={() => { setFireworksKey(k => k + 1); setFireworksActive(true) }} />
           </div>
         </div>
         {/* Center title — desktop only */}

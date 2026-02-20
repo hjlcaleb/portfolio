@@ -24,7 +24,8 @@ export const fileSystem = {
           iconType: 'image',
           title: 'University of Washington | Expected June 2027',
           subtitle: 'B.S. Computer Science · Seattle, WA',
-          description: ['Concentrations in ML & Data Science. GPA: 3.82/4.00.', 'Key Coursework: Machine Learning, Systems Engineering, Data Structures & Parallelism, Algorithms, Hardware/Software Interface.'],
+          description: ['Concentration in ML and Data Science','GPA: 3.82/4.00', 'Relevant Coursework:'],
+          coursework: ['Machine Learning', 'Systems Programming', 'Data Structures & Parallelism', 'Algorithms', 'Hardware/Software Interface', 'Probability & Statistics for Computer Science', 'Discrete Mathematics'],
           techStack: '',
           links: []
         }
@@ -36,9 +37,9 @@ export const fileSystem = {
         {
           icon: '/experienceIcons/chewy.png',
           iconType: 'image',
-          title: 'Incoming Software Engineer Intern | June 2026 - December 2026',
+          title: 'Software Engineer Intern | June 2026 - December 2026',
           subtitle: 'Chewy · Bellevue, WA',
-          description: ['Incoming Summer + Fall 2026 - Applied AI/ML for internal & customer-facing tools across Chewy’s ecosystem.'],
+          description: ['Incoming Summer + Fall 2026 - AI & Data Innovation Team'],
           links: []
         },
         {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function ExperienceCard({ icon, iconType, title, subtitle, description, devicons, techStack, links }) {
+export default function ExperienceCard({ icon, iconType, title, subtitle, description, devicons, techStack, coursework, links }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -77,6 +77,17 @@ export default function ExperienceCard({ icon, iconType, title, subtitle, descri
             <p className="text-gray-300 text-sm">
               <span className="text-white font-semibold">Tech Stack:</span> {techStack}
             </p>
+          )}
+          {coursework && coursework.length > 0 && (
+            <div className="mt-3">
+              <div className="flex flex-wrap gap-2">
+                {coursework.map((course, i) => (
+                  <span key={i} className="bg-[#4b2e83] text-white text-xs px-2.5 py-1 rounded-full">
+                    {course}
+                  </span>
+                ))}
+              </div>
+            </div>
           )}
           {links && links.length > 0 && (
             <div className="mt-2 flex gap-3">
