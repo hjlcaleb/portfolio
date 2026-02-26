@@ -4,7 +4,7 @@ export const fileSystem = {
     type: 'markdown',
     hero: {
       greeting: "Hi! I'm Caleb.",
-      identities: ['Software Engineer', 'CV Researcher', 'Seahawks Fan', 'F1 (LeClerc) Enthusiast', 'Performative Hiker'],
+      identities: ['Software Engineer', 'CV Researcher', 'Seahawks Fan', 'F1 (LeClerc) Enthusiast'],
       photo: '/delcampo.jpg',
       bio: [
         'Incoming Software Engineer Intern @ Chewy',
