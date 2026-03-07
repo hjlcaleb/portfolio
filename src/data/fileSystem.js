@@ -7,7 +7,6 @@ export const fileSystem = {
       identities: ['Software Engineer', 'CV Researcher', 'Seahawks Fan', 'F1 (LeClerc) Enthusiast'],
       photo: '/delcampo.jpg',
       bio: [
-        'Incoming Software Engineer Intern @ Chewy',
         'Research Assistant @ Makeability Lab',
         'Teaching Assistant @ Paul G. Allen School of Computer Science & Engineering',
         'Interested in full-stack development, ML, and human-computer interaction.'
@@ -34,14 +33,14 @@ export const fileSystem = {
     {
       title: 'Work Experience',
       cards: [
-        {
-          icon: '/experienceIcons/chewy.png',
-          iconType: 'image',
-          title: 'Software Engineer Intern | June 2026 - December 2026',
-          subtitle: 'Chewy · Bellevue, WA',
-          description: ['Incoming Summer + Fall 2026 - AI & Data Innovation Team'],
-          links: []
-        },
+        // {
+        //   icon: '/experienceIcons/chewy.png',
+        //   iconType: 'image',
+        //   title: 'Software Engineer Intern | June 2026 - December 2026',
+        //   subtitle: 'Chewy · Bellevue, WA',
+        //   description: ['Incoming Summer + Fall 2026 - AI & Data Innovation Team'],
+        //   links: []
+        // },
         {
           icon: '/experienceIcons/makeabilitylab.png',
           iconType: 'image',
@@ -217,7 +216,7 @@ export const fileSystem = {
         {
           icon: '/experienceIcons/uwca.png',
           iconType: 'image',
-          title: 'Technical Director & Senior Consulting Analyst | March 2025 - Present',
+          title: 'Technical Director & Senior Consulting Analyst | March 2025 - March 2026',
           subtitle: 'University of Washington Consulting Association (UWCA) · Seattle, WA',
           description: ['Built CALEB for a 10-member exec team.', 'Redesigned the UWCA website; generated 176% increase in unique visits over first 30 days.'],
           techStack: '',
